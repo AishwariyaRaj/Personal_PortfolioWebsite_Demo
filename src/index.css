@@ -1,0 +1,250 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent-primary: #3b82f6;
+  --accent-secondary: #60a5fa;
+  --accent-tertiary: #93c5fd;
+  --accent-gold: #fbbf24;
+  --dark-bg: #000000;
+  --dark-surface: #0d0d0d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffffff, #666666);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff, #60a5fa, #ffffff);
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(96, 165, 250, 0.3);
+}
+
+/* Accent Text */
+.accent-text {
+  color: #60a5fa;
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-white {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+}
+
+.glow-soft {
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.2);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+}
+
+.btn-outline {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  border: 2px solid #60a5fa;
+  color: #60a5fa;
+}
+
+.btn-outline:hover {
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  color: #ffffff;
+}
+
+/* Section Styles */
+.section-title {
+  @apply text-4xl md:text-5xl font-bold mb-6;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #ffffff;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.section-subtitle {
+  @apply text-lg mb-12 max-w-2xl mx-auto;
+  color: #b0b0b0;
+}
+
+/* Section background for readability */
+#projects,
+#skills,
+#contact,
+#about {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+  backdrop-filter: blur(10px);
+}
+
+/* Card Hover Effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.card-3d:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark-bg);
+}
+
+/* Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Particle Trail */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle-fade 1s ease forwards;
+}
+
+@keyframes particle-fade {
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* Ensure project cards and soft skills are always visible */
+.project-card,
+.soft-skill-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Responsive Canvas */
+.canvas-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-3xl;
+  }
+  
+  .section-subtitle {
+    @apply text-base;
+  }
+}
+
+/* Performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
