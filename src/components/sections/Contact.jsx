@@ -178,7 +178,7 @@ function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="contact-card">
+          <div className="contact-card" id="contact-form">
             <div className="glass rounded-2xl p-8 border border-blue-500/20">
               <h3 className="text-xl font-semibold text-white mb-6">
                 Send a Message
@@ -294,13 +294,16 @@ function Contact() {
               <p className="text-white/70 mb-8">
                 Let's collaborate and turn your ideas into reality
               </p>
-              <a
-                href="mailto:aishwariya229@gmail.com"
+              <button
+                onClick={() => {
+                  document.querySelector('#contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                  setTimeout(() => document.querySelector('#contact-form input[name="name"]')?.focus(), 500)
+                }}
                 className="btn-primary inline-flex items-center gap-2"
               >
                 <FiMail size={18} />
                 Start a Conversation
-              </a>
+              </button>
             </div>
           </div>
         </div>

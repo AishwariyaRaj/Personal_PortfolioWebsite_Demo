@@ -9,7 +9,7 @@ const highlights = [
   { icon: FiCode, label: 'Web Development', color: '#3b82f6' },
   { icon: FiCpu, label: 'Artificial Intelligence', color: '#60a5fa' },
   { icon: FiLayers, label: 'UI/UX Design', color: '#3b82f6' },
-  { icon: FiDatabase, label: 'Backend Development', color: '#60a5fa' },
+  { icon: FiDatabase, label: 'Frontend Development', color: '#60a5fa' },
 ]
 
 function About() {
