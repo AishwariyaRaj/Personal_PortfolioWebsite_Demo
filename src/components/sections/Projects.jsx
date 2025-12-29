@@ -16,7 +16,8 @@ const projects = [
     live: null,
     color: '#3b82f6',
     icon: '🚗',
-    category: 'Full Stack'
+    category: 'Full Stack',
+    image: 'https://i.ibb.co/bM8Z1XdT/Screenshot-1638.png ',
   },
   {
     id: 2,
@@ -28,7 +29,8 @@ const projects = [
     live: null,
     color: '#60a5fa',
     icon: '🔍',
-    category: 'AI/ML'
+    category: 'AI/ML',
+    image: 'https://i.postimg.cc/FFcHdwyk/Screenshot-679.png',
   },
   {
     id: 3,
@@ -40,7 +42,8 @@ const projects = [
     live: 'https://artisanal-dapp.vercel.app/',
     color: '#93c5fd',
     icon: '🎨',
-    category: 'Blockchain'
+    category: 'Blockchain',
+    image: 'https://i.ibb.co/YJ2q5KR/Screenshot-1639.png',
   }
 ]
 
@@ -174,22 +177,20 @@ function ProjectCard({ project, index, onClick }) {
 }
 
 function ProjectModal({ project, onClose }) {
-  const modalRef = useRef()
-  
+  const modalRef = useRef();
+
   useEffect(() => {
     gsap.from(modalRef.current, {
       opacity: 0,
       scale: 0.9,
       duration: 0.3,
-      ease: 'power3.out'
-    })
-    
-    // Prevent body scroll
-    document.body.style.overflow = 'hidden'
+      ease: 'power3.out',
+    });
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [])
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   const handleClose = () => {
     gsap.to(modalRef.current, {
@@ -197,79 +198,78 @@ function ProjectModal({ project, onClose }) {
       scale: 0.9,
       duration: 0.2,
       ease: 'power3.in',
-      onComplete: onClose
-    })
-  }
+      onComplete: onClose,
+    });
+  };
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-6"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-6"
       onClick={handleClose}
+      style={{ background: 'rgba(10, 20, 40, 0.95)' }}
     >
-      {/* Backdrop */}
-      <div className="absolute inset-0 bg-dark-300/80 backdrop-blur-sm" />
-      
-      {/* Modal */}
+      {/* Modal Content */}
       <div
         ref={modalRef}
-        className="relative glass rounded-3xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
+        className="relative flex flex-col items-center justify-center w-full h-full md:max-w-3xl md:max-h-[90vh] md:rounded-3xl bg-black/90 p-0 md:p-8 overflow-auto"
+        onClick={e => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-blue-500/20 transition-colors"
+          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-blue-500/20 transition-colors z-10"
         >
           <FiX size={20} />
         </button>
-        
-        {/* Icon & Category */}
-        <div className="flex items-center gap-4 mb-6">
-          <span className="text-6xl">{project.icon}</span>
-          <div>
-            <span 
-              className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-2"
-              style={{ 
-                backgroundColor: `${project.color}20`,
-                color: project.color 
-              }}
-            >
-              {project.category}
-            </span>
-            <h2 className="text-3xl font-bold text-white font-display">
-              {project.title}
-            </h2>
-          </div>
+
+        {/* Project Image (fullscreen in modal) */}
+        {project.image && (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-contain bg-black rounded-none md:rounded-xl shadow-lg"
+            style={{ maxHeight: '80vh', background: '#222' }}
+          />
+        )}
+
+        {/* Title and Category (overlayed or below image) */}
+        <div className="w-full flex flex-col items-center mt-4 mb-6">
+          <span
+            className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-2"
+            style={{ backgroundColor: `${project.color}20`, color: project.color }}
+          >
+            {project.category}
+          </span>
+          <h2 className="text-3xl font-bold text-white font-display text-center">
+            {project.title}
+          </h2>
         </div>
-        
+
         {/* Description */}
-        <p className="text-white/80 leading-relaxed mb-6">
+        <p className="text-white/80 leading-relaxed mb-6 text-center max-w-2xl">
           {project.fullDescription}
         </p>
-        
+
         {/* Tech Stack */}
         <div className="mb-6">
-          <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3">
+          <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider mb-3 text-center">
             Tech Stack
           </h3>
-          <div className="flex flex-wrap gap-2">
-            {project.techStack.map(tech => (
-              <span 
+          <div className="flex flex-wrap gap-2 justify-center">
+            {project.techStack.map((tech) => (
+              <span
                 key={tech}
                 className="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
-                style={{ 
-                  backgroundColor: `${project.color}15`,
-                  color: project.color 
-                }}
+                style={{ backgroundColor: `${project.color}15`, color: project.color }}
               >
                 {tech}
               </span>
             ))}
           </div>
         </div>
-        
+
         {/* Links */}
-        <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+        <div className="flex items-center gap-4 pt-6 border-t border-white/10 w-full justify-center">
           <a
             href={project.github}
             target="_blank"
@@ -293,7 +293,7 @@ function ProjectModal({ project, onClose }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function Projects() {
