@@ -7,7 +7,8 @@ import {
 } from 'react-icons/fi'
 import { 
   SiPython, SiDocker, SiPostgresql, SiReact, 
-  SiSpring, SiSolidity
+  SiSpring, SiSolidity, SiNodedotjs, SiExpress,
+  SiMongodb, SiPostman, SiHtml5, SiCss3, SiJavascript
 } from 'react-icons/si'
 import { DiJava } from 'react-icons/di'
 
@@ -20,11 +21,23 @@ const technicalSkills = [
     color: '#3b82f6',
     level: 85 
   },
-  { 
-    name: 'Python', 
-    icon: SiPython, 
+  {
+    name: 'JavaScript',
+    icon: SiJavascript,
     color: '#60a5fa',
-    level: 80 
+    level: 85
+  },
+  {
+    name: 'HTML',
+    icon: SiHtml5,
+    color: '#3b82f6',
+    level: 90
+  },
+  {
+    name: 'CSS',
+    icon: SiCss3,
+    color: '#60a5fa',
+    level: 85
   },
   { 
     name: 'React.js', 
@@ -32,12 +45,37 @@ const technicalSkills = [
     color: '#3b82f6',
     level: 75 
   },
+  {
+    name: 'Node.js',
+    icon: SiNodedotjs,
+    color: '#60a5fa',
+    level: 80
+  },
+  {
+    name: 'Express.js',
+    icon: SiExpress,
+    color: '#3b82f6',
+    level: 78
+  },
+  {
+    name: 'MongoDB',
+    icon: SiMongodb,
+    color: '#60a5fa',
+    level: 80
+  },
+  {
+    name: 'Postman',
+    icon: SiPostman,
+    color: '#3b82f6',
+    level: 82
+  },
   { 
     name: 'Spring Boot', 
     icon: SiSpring, 
     color: '#60a5fa',
     level: 70 
   },
+  
   { 
     name: 'Docker', 
     icon: SiDocker, 
@@ -45,7 +83,7 @@ const technicalSkills = [
     level: 65 
   },
   { 
-    name: 'SQL', 
+    name: 'PostGreSQL', 
     icon: SiPostgresql, 
     color: '#60a5fa',
     level: 70 
@@ -55,13 +93,7 @@ const technicalSkills = [
     icon: FiGitBranch, 
     color: '#3b82f6',
     level: 80 
-  },
-  { 
-    name: 'Solidity', 
-    icon: SiSolidity, 
-    color: '#60a5fa',
-    level: 60 
-  },
+  }
 ]
 
 const softSkills = [
@@ -248,7 +280,7 @@ function Skills() {
                 Currently Exploring
               </h4>
               <div className="flex flex-wrap gap-2">
-                {['Machine Learning', 'Deep Learning', 'DataStructure and algorithms', 'DevOps'].map(tech => (
+                {['MernStack Development', 'Backend Development', 'Frontend Development', 'DevOps'].map(tech => (
                   <span 
                     key={tech}
                     className="px-3 py-1.5 rounded-lg text-sm bg-blue-500/10 text-blue-300 border border-blue-500/30"

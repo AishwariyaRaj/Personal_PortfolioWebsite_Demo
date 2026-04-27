@@ -67,9 +67,9 @@ function Hero() {
           <h2 className="text-xl md:text-2xl text-white mb-4 font-medium tracking-wide">
             <span className="text-blue-400 font-semibold">Software Developer</span>
             <span className="text-white/60"> | </span>
-            <span className="text-white">AI Enthusiast</span>
+            <span className="text-white">Junior MernStack Developer</span>
             <span className="text-white/60"> | </span>
-            <span className="text-blue-300">Web Development</span>
+            <span className="text-blue-300">AI Enthusiast</span>
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto leading-relaxed text-lg">
             Building modern, user-centric applications that combine clean design 

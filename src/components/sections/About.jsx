@@ -6,7 +6,7 @@ import { FiMapPin, FiCode, FiCpu, FiLayers, FiDatabase } from 'react-icons/fi'
 gsap.registerPlugin(ScrollTrigger)
 
 const highlights = [
-  { icon: FiCode, label: 'Web Development', color: '#3b82f6' },
+  { icon: FiCode, label: 'MernStack Development', color: '#3b82f6' },
   { icon: FiCpu, label: 'Artificial Intelligence', color: '#60a5fa' },
   { icon: FiLayers, label: 'UI/UX Design', color: '#3b82f6' },
   { icon: FiDatabase, label: 'Frontend Development', color: '#60a5fa' },
@@ -86,8 +86,8 @@ function About() {
 
               {/* Bio */}
               <p className="text-white/80 leading-relaxed mb-6 text-base">
-                I am a software development enthusiast with a strong passion for artificial intelligence, 
-                web development, UI/UX design, and blockchain technologies. I enjoy building modern, 
+                I am a software development enthusiast with a strong passion for MernStack Development, artificial intelligence, 
+                web development, UI/UX design and Devops. I enjoy building modern, 
                 user-centric applications that combine clean design with intelligent functionality.
               </p>
               
@@ -140,8 +140,8 @@ function About() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-8">
               {[
-                { value: '3+', label: 'Projects' },
-                { value: '5+', label: 'Technologies' },
+                { value: '10+', label: 'Projects' },
+                { value: '7+', label: 'Technologies' },
                 { value: '∞', label: 'Curiosity' },
               ].map(({ value, label }) => (
                 <div key={label} className="text-center p-4 glass rounded-xl border border-blue-500/20">

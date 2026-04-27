@@ -213,6 +213,32 @@ body {
   visibility: visible !important;
 }
 
+/* Projects auto-scrolling track */
+.projects-marquee {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.projects-marquee-track {
+  animation-name: projects-marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.projects-marquee:hover .projects-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes projects-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Responsive Canvas */
 .canvas-container {
   position: fixed;
@@ -235,6 +261,11 @@ body {
   
   .section-subtitle {
     @apply text-base;
+  }
+
+  .projects-marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 }
 
