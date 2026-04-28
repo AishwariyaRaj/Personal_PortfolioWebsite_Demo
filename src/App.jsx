@@ -12,16 +12,41 @@ import Skills from './components/sections/Skills'
 import Contact from './components/sections/Contact'
 import Footer from './components/ui/Footer'
 import CustomCursor from './components/ui/CustomCursor'
+import { notifyVisitor, resetVisitorNotification, clearVisitorData } from './utils/visitorNotification'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
+    // Expose testing utilities to window for console debugging
+    window.resetVisitorNotification = resetVisitorNotification
+    window.clearVisitorData = clearVisitorData
+    console.log('📧 Visitor notification utilities available in console:')
+    console.log('  - resetVisitorNotification() - reset localStorage to test again')
+    console.log('  - clearVisitorData() - clear all visitor data')
+  }, [])
+
+  useEffect(() => {
     // Simulate loading time for 3D assets
     const timer = setTimeout(() => setIsLoading(false), 2500)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    // Send visitor notification email on page load (after loading is complete)
+    // This will send an email to you with visitor details
+    // It only sends once per visitor (using localStorage)
+    if (!isLoading) {
+      notifyVisitor().then((sent) => {
+        if (sent) {
+          console.log('✅ Visitor notification sent successfully!')
+        }
+      }).catch((error) => {
+        console.log('Visitor notification skipped or failed (this is normal):', error)
+      })
+    }
+  }, [isLoading])
 
   useEffect(() => {
     const handleScroll = () => {
