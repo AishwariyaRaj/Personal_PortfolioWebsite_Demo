@@ -14,9 +14,9 @@
 
 // ========== EMAILJS CONFIGURATION ==========
 // Replace these with your actual EmailJS credentials
-const EMAILJS_PUBLIC_KEY = 'BNnI-FJCO5vrMcgic' // Get from: EmailJS Account Settings
-const EMAILJS_SERVICE_ID = 'service_ij4n1mq' // Get from: EmailJS Services
-const EMAILJS_TEMPLATE_ID = 'template_8jnrsgf' // Get from: EmailJS Templates
+const EMAILJS_PUBLIC_KEY = 'EMAILJS_PUBLIC_KEY' // Get from: EmailJS Account Settings
+const EMAILJS_SERVICE_ID = 'EMAILJS_SERVICE_ID' // Get from: EmailJS Services
+const EMAILJS_TEMPLATE_ID = 'EMAILJS_TEMPLATE_ID' // Get from: EmailJS Templates
 
 // Unique identifier for storing visitor status in localStorage
 const VISITOR_NOTIFIED_KEY = 'portfolio_visitor_notified'
